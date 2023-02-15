@@ -215,14 +215,16 @@ def evaluate(model, data_loader, device, epoch):
                                                                                accu_num.item() / sample_num)
     return accu_loss.item() / (step + 1), accu_num.item() / sample_num
 
-def fit_model(adata, gmt_path, pre_weights='', label_name='Celltype',max_g=300,max_gs=300, mask_ratio = 0.015,n_unannotated = 1,batch_size=8, embed_dim=48,depth=2,num_heads=4,lr=0.001, epochs= 10, lrf=0.01):
+def fit_model(adata, gmt_path, pre_weights='', label_name='Celltype',max_g=300,max_gs=300, mask_ratio = 0.015,n_unannotated = 1,batch_size=8, embed_dim=48,depth=2,num_heads=4,lr=0.001, epochs= 10, lrf=0.01, train_weights = ""):
     GLOBAL_SEED = 1
     set_seed(GLOBAL_SEED)
     device = 'cuda:0'
     device = torch.device(device if torch.cuda.is_available() else "cpu")
     print(device)
     today = time.strftime('%Y%m%d',time.localtime(time.time()))
-    train_weights = os.getcwd()+"/weights%s"%today
+    # train_weights = os.getcwd()+"/weights%s"%today
+    if train_weights == "":
+        train_weights = os.getcwd()+"/weights%s"%today
     if os.path.exists(train_weights) is False:
         os.makedirs(train_weights)
     tb_writer = SummaryWriter()
