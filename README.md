@@ -1,5 +1,7 @@
 # TOSICA: Transformer for One-Stop Interpretable Cell-type Annotation
 
+This is a Databricks compatible version of TOSICA with modification to its training function. The original code can be found at https://github.com/JackieHanLab/TOSICA.
+
 ![Workflow](./figure.png)
 
 ## Package: `TOSICA`
