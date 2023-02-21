@@ -31,7 +31,7 @@ pip install .
 Alternatively, you can also install the package directly from GitHub via
 
 ```
-pip install git+https://github.com/JackieHanLab/TOSICA.git
+pip install git+https://datascience.genmab.net/gitlab/atcs/tosica
 ```
 
 ### Environment has been tested
